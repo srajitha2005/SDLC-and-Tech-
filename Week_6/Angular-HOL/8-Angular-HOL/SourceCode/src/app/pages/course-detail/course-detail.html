@@ -1,0 +1,29 @@
+<div class="detail-container" *ngIf="course; else notFound">
+  <button class="btn-back" (click)="goBack()">← Back to Courses</button>
+  <h2>{{ course.name }}</h2>
+  <div class="detail-card">
+    <p><strong>Course ID:</strong> {{ course.id }}</p>
+    <p><strong>Code:</strong> {{ course.code }}</p>
+    <p><strong>Credits:</strong> {{ course.credits }}</p>
+    <p><strong>Grade Status:</strong>
+      <span [style.color]="course.gradeStatus === 'passed' ? 'green' : course.gradeStatus === 'failed' ? 'red' : 'grey'">
+        {{ course.gradeStatus | uppercase }}
+      </span>
+    </p>
+  </div>
+
+  <!-- Step 87: Students loaded via switchMap — cancels previous request on new courseId -->
+  <h3 style="margin-top:1.5rem;">Enrolled Students</h3>
+  <ul *ngIf="students.length > 0; else noStudents" class="student-list">
+    <li *ngFor="let s of students">{{ s.name }} — {{ s.email }}</li>
+  </ul>
+  <ng-template #noStudents><p style="color:#999;">No students enrolled yet.</p></ng-template>
+</div>
+
+<div *ngIf="errorMessage" class="error-msg">⚠ {{ errorMessage }}</div>
+
+<ng-template #notFound>
+  <p class="not-found-msg">Course not found.</p>
+  <button class="btn-back" (click)="goBack()">← Back to Courses</button>
+</ng-template>
+

@@ -1,0 +1,7 @@
+<div class="card">
+  <h3>{{ course.name }}</h3>
+  <p><b>ID:</b> {{ course.id }}</p>
+  <p><b>Code:</b> {{ course.code }}</p>
+  <p><b>Credits:</b> {{ course.credits }}</p>
+  <button (click)="enrollRequested.emit(course.id)">Enroll</button>
+</div>

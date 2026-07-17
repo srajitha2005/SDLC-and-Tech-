@@ -1,0 +1,25 @@
+<ng-container *ngIf="{ isEnrolled: isEnrolled$ | async } as state">
+  <div class="card" [ngClass]="cardClasses" [class.card--enrolled]="state.isEnrolled"
+       [ngStyle]="{ 'border-left': '5px solid ' + (course?.gradeStatus === 'passed' ? 'green' : course?.gradeStatus === 'failed' ? 'red' : 'grey') }">
+    
+    <h3>{{ course?.name }}</h3>
+    
+    <div [ngSwitch]="course?.gradeStatus" class="badge-container">
+      <span *ngSwitchCase="'passed'" style="color: green; font-weight: bold;">Passed</span>
+      <span *ngSwitchCase="'failed'" style="color: red; font-weight: bold;">Failed</span>
+      <span *ngSwitchDefault style="color: grey; font-weight: bold;">Pending</span>
+    </div>
+
+    <p><b>ID:</b> {{ course?.id }}</p>
+    <p><b>Code:</b> {{ course?.code }}</p>
+    <p><b>Credits:</b> {{ course?.credits | creditLabel }}</p>
+    
+    <div class="actions">
+      <!-- Step 100: Use isEnrolled from state to determine button text and action -->
+      <button (click)="onEnrollClick(state.isEnrolled ?? false); $event.stopPropagation()">
+        {{ state.isEnrolled ? 'Unenroll' : 'Enroll' }}
+      </button>
+      <button (click)="toggleExpanded(); $event.stopPropagation()">Show Details</button>
+    </div>
+  </div>
+</ng-container>

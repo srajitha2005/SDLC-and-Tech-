@@ -1,0 +1,19 @@
+<div class="detail-container" *ngIf="course; else notFound">
+  <button class="btn-back" (click)="goBack()">← Back to Courses</button>
+  <h2>{{ course.name }}</h2>
+  <div class="detail-card">
+    <p><strong>Course ID:</strong> {{ course.id }}</p>
+    <p><strong>Code:</strong> {{ course.code }}</p>
+    <p><strong>Credits:</strong> {{ course.credits }}</p>
+    <p><strong>Grade Status:</strong>
+      <span [style.color]="course.gradeStatus === 'passed' ? 'green' : course.gradeStatus === 'failed' ? 'red' : 'grey'">
+        {{ course.gradeStatus | uppercase }}
+      </span>
+    </p>
+  </div>
+</div>
+
+<ng-template #notFound>
+  <p class="not-found-msg">Course not found.</p>
+  <button class="btn-back" (click)="goBack()">← Back to Courses</button>
+</ng-template>
