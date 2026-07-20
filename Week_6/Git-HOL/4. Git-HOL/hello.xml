@@ -1,0 +1,37 @@
+import DashboardLayout from "../layouts/DashboardLayout";
+
+export default function Dashboard() {
+  return (
+    <DashboardLayout>
+
+      <h1 className="text-4xl font-bold mb-8">
+        Dashboard
+      </h1>
+
+      <div className="grid grid-cols-4 gap-6">
+
+        <div className="bg-white rounded-xl shadow p-6">
+          <h2 className="text-gray-500">Users</h2>
+          <p className="text-4xl font-bold text-blue-600">1</p>
+        </div>
+
+        <div className="bg-white rounded-xl shadow p-6">
+          <h2 className="text-gray-500">Teams</h2>
+          <p className="text-4xl font-bold text-green-600">1</p>
+        </div>
+
+        <div className="bg-white rounded-xl shadow p-6">
+          <h2 className="text-gray-500">Projects</h2>
+          <p className="text-4xl font-bold text-orange-500">1</p>
+        </div>
+
+        <div className="bg-white rounded-xl shadow p-6">
+          <h2 className="text-gray-500">Organizations</h2>
+          <p className="text-4xl font-bold text-purple-600">3</p>
+        </div>
+
+      </div>
+
+    </DashboardLayout>
+  );
+}
