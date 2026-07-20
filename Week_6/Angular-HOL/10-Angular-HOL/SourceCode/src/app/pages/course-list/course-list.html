@@ -1,0 +1,36 @@
+<h2 class="heading">Available Courses</h2>
+
+<!-- Step 96: Loading and error states from NgRx selectors via async pipe -->
+<div *ngIf="isLoading$ | async" class="loading-msg">Loading courses...</div>
+<div *ngIf="(errorMessage$ | async) as errorMsg" class="error-msg">⚠ {{ errorMsg }}</div>
+
+<!-- Step 96: Render using the async pipe -->
+<app-course-summary-widget *ngIf="courses$ | async as courses" [courseCount]="courses.length"></app-course-summary-widget>
+
+<div class="search-bar">
+  <input 
+    type="text" 
+    [ngModel]="searchTerm$ | async" 
+    (ngModelChange)="onSearch($event)" 
+    placeholder="Search courses..." 
+  />
+</div>
+
+<ng-container *ngIf="(filteredCourses$ | async) as filteredCourses; else noCourses">
+  <div class="courseContainer" *ngIf="filteredCourses.length > 0; else noCourses">
+    <div class="card-wrapper" *ngFor="let c of filteredCourses; trackBy: trackByCourseId" (click)="navigateToCourse(c.id)">
+      <app-course-card 
+        [course]="c" 
+        (enrollRequested)="onEnroll($event)"
+        appHighlight
+        highlightColor="#f0f8ff"
+      ></app-course-card>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #noCourses>
+  <p>No courses found.</p>
+</ng-template>
+
+<p *ngIf="selectedCourseId">Selected course ID: {{ selectedCourseId }}</p>

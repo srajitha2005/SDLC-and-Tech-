@@ -1,0 +1,85 @@
+.home{
+
+    text-align:center;
+
+    margin:40px 0;
+
+}
+
+.home h1{
+
+    font-size:42px;
+
+}
+
+.home p{
+
+    margin:15px;
+
+    font-size:18px;
+
+}
+
+button{
+
+    background:#1976d2;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 30px;
+
+    border-radius:8px;
+
+    font-size:18px;
+
+}
+
+input{
+
+    margin-top:20px;
+
+    padding:10px;
+
+    width:350px;
+
+    font-size:17px;
+
+}
+
+.msg{
+
+    color:green;
+
+    font-weight:bold;
+
+}
+
+.stats{
+
+    margin-top:35px;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:30px;
+
+}
+
+.card{
+
+    background:white;
+
+    width:220px;
+
+    padding:25px;
+
+    border-radius:10px;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+
+}

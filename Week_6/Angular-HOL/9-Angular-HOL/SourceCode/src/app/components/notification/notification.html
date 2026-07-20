@@ -1,0 +1,12 @@
+<div class="notification-box">
+  <h4>Notifications (Component-Level Service Instance)</h4>
+  <div class="input-row">
+    <input type="text" [(ngModel)]="newMessage" placeholder="Type a message...">
+    <button (click)="addMsg()">Add</button>
+    <button class="btn-clear" (click)="notificationService.clear()">Clear</button>
+  </div>
+  <ul *ngIf="notificationService.getMessages().length > 0; else noMsgs">
+    <li *ngFor="let msg of notificationService.getMessages()">{{ msg }}</li>
+  </ul>
+  <ng-template #noMsgs><p class="empty">No notifications yet.</p></ng-template>
+</div>

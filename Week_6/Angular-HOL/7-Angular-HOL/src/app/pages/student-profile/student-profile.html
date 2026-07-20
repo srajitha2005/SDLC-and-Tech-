@@ -1,0 +1,24 @@
+<h2>Student Profile</h2>
+
+<p>Name : John Doe</p>
+<p>Department : Computer Science</p>
+<p>Year : Final Year</p>
+
+<hr>
+
+<h3>Enrolled Courses</h3>
+<ng-container *ngIf="enrollmentService.getEnrolledCourses().length > 0; else noEnrolled">
+  <ul class="enrolled-list">
+    <li *ngFor="let course of enrollmentService.getEnrolledCourses()">
+      <strong>{{ course.name }}</strong> — {{ course.code }} ({{ course.credits }} credits)
+    </li>
+  </ul>
+</ng-container>
+<ng-template #noEnrolled>
+  <p class="empty-msg">No courses enrolled yet. Visit the Courses page to enroll!</p>
+</ng-template>
+
+<hr>
+
+<!-- NotificationComponent uses a component-level NotificationService instance (scoped DI) -->
+<app-notification></app-notification>

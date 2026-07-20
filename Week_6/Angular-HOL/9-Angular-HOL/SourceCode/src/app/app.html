@@ -1,0 +1,11 @@
+<app-header></app-header>
+
+<!-- Step 91: Global loading spinner — shown on every HTTP request via the loading interceptor.
+     async pipe automatically subscribes/unsubscribes to isLoading$ Observable. -->
+<div class="global-spinner" *ngIf="loadingService.isLoading$ | async">
+  <div class="spinner"></div>
+</div>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

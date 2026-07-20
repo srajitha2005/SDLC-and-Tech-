@@ -1,0 +1,175 @@
+.form-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* Angular validation state classes */
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border-color: red;
+  border-width: 2px;
+}
+
+input.ng-valid.ng-touched,
+select.ng-valid.ng-touched {
+  border-color: green;
+  border-width: 2px;
+}
+
+/* Async pending state */
+input.ng-pending {
+  border-color: orange;
+  border-width: 2px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox-group label {
+  margin-bottom: 0;
+}
+
+.error-container {
+  min-height: 20px;
+  margin-top: 0.25rem;
+}
+
+.error {
+  color: red;
+  font-size: 0.85rem;
+  display: block;
+}
+
+.info {
+  color: orange;
+  font-size: 0.85rem;
+  display: block;
+}
+
+.success-message {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.form-actions button {
+  flex: 1;
+}
+
+button[type="submit"] {
+  background-color: #1976d2;
+  color: white;
+}
+
+button[type="submit"]:disabled {
+  background-color: #90caf9;
+  cursor: not-allowed;
+}
+
+button.btn-reset {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+button.btn-reset:hover {
+  background-color: #bdbdbd;
+}
+
+.additional-course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.additional-course-header label {
+  margin-bottom: 0;
+}
+
+.btn-small {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn-small:hover {
+  background-color: #43a047;
+}
+
+.additional-courses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dynamic-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-remove {
+  padding: 0.5rem 1rem;
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-remove:hover {
+  background-color: #d32f2f;
+}

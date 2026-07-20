@@ -1,0 +1,29 @@
+<h2 class="heading">Available Courses</h2>
+
+<app-course-summary-widget></app-course-summary-widget>
+
+<!-- Step 71: Search input updates URL query param on keyup -->
+<div class="search-bar">
+  <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="onSearch()" placeholder="Search courses...">
+</div>
+
+<ng-container *ngIf="filteredCourses.length > 0; else noCourses">
+  <div class="courseContainer">
+    <!-- Step 70: Each card is wrapped in a clickable div to navigate to /courses/:id -->
+    <div *ngFor="let course of filteredCourses; trackBy: trackByCourseId"
+         class="card-wrapper"
+         (click)="navigateToCourse(course.id)">
+      <app-course-card [course]="course"
+                       (enrollRequested)="onEnroll($event)"
+                       appHighlight="lightblue"
+                       (click)="$event.stopPropagation()">
+      </app-course-card>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #noCourses>
+  <p>No courses found.</p>
+</ng-template>
+
+<p *ngIf="selectedCourseId">Selected course ID: {{ selectedCourseId }}</p>
